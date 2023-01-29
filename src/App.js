@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import SpeechRecognition, {
   useSpeechRecognition,
@@ -12,13 +12,17 @@ import Box from "./components/Box";
 
 const App = () => {
   const [textValue, setTextValue] = useState("");
-  const { transcript, listening } = useSpeechRecognition({
+  const { transcript, listening, resetTranscript } = useSpeechRecognition({
     continuous: true,
   });
 
-  if (listening) {
-    setTextValue(transcript);
-  }
+  useEffect(() => {
+    if (listening) {
+      setTextValue(transcript);
+    }
+
+    return () => resetTranscript;
+  }, [transcript]);
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     alert("Your browser does not support speech recognition.");
