@@ -16,12 +16,8 @@ const App = () => {
     continuous: true,
   });
 
-  function voiceHandler(event) {
-    if (listening) {
-      setTextValue(transcript);
-    } else {
-      setTextValue(event.target.value);
-    }
+  if (listening) {
+    setTextValue(transcript);
   }
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
@@ -48,7 +44,7 @@ const App = () => {
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
           value={textValue}
-          onChange={voiceHandler}
+          onChange={(event) => setTextValue(event.target.value)}
         />
         <Text mt={"10px"}>Negative prompt</Text>
         <Textarea
