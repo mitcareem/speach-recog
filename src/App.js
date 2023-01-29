@@ -38,6 +38,7 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
+          value={transcript}
         />
         <Text mt={"10px"}>Negative prompt</Text>
         <Textarea
@@ -121,7 +122,6 @@ const App = () => {
             Generate
           </Button>
         </Toolbar>
-        <p>hi, {transcript}</p>
       </Box>
     </Toolbar>
   );
