@@ -14,8 +14,8 @@ const App = () => {
   const [input1TextValue, setText1TextValue] = useState("");
   const [input2TextValue, setText2TextValue] = useState("");
 
-  const [input1TranscriptValue, setInput1TranscriptValue] = useState("");
-  const [input2TranscriptValue, setInput2TranscriptValue] = useState("");
+  // const [input1TranscriptValue, setInput1TranscriptValue] = useState("");
+  // const [input2TranscriptValue, setInput2TranscriptValue] = useState("");
 
   const { transcript } = useSpeechRecognition({
     continuous: true,
@@ -25,13 +25,13 @@ const App = () => {
     alert("Your browser does not support speech recognition.");
   }
 
-  const handleTranscript = (inputNum) => {
-    if (inputNum === 1) {
-      setInput1TranscriptValue(transcript);
-    } else if (inputNum === 2) {
-      setInput2TranscriptValue(transcript);
-    }
-  };
+  // const handleTranscript = (inputNum) => {
+  //   if (inputNum === 1) {
+  //     setInput1TranscriptValue(transcript);
+  //   } else if (inputNum === 2) {
+  //     setInput2TranscriptValue(transcript);
+  //   }
+  // };
 
   return (
     <Toolbar mt={"50px"} style={{ justifyContent: "center" }}>
@@ -52,8 +52,8 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
-          onFocus={() => handleTranscript(1)}
-          value={input1TextValue || input1TranscriptValue}
+          // onFocus={() => handleTranscript(1)}
+          value={input1TextValue || transcript}
           onChange={(event) => {
             setText1TextValue(event.target.value);
           }}
@@ -73,8 +73,8 @@ const App = () => {
           pb={"10px"}
           pl={"10px"}
           fontSize={"1.15em"}
-          onFocus={() => handleTranscript(2)}
-          value={input2TextValue || input2TranscriptValue}
+          // onFocus={() => handleTranscript(2)}
+          value={input2TextValue || transcript}
           onChange={(event) => {
             setText2TextValue(event.target.value);
           }}
