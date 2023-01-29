@@ -103,15 +103,7 @@ const Textarea = styled.textarea`
     css`
       background-color: ${props.backgroundColor};
     `};
-
-  ${(props) =>
-    props.value &&
-    css`
-      value: ${props.value};
-    `};
 `;
-
-
 
 Textarea.propTypes = {
   height: PropTypes.string,
@@ -131,9 +123,6 @@ Textarea.propTypes = {
   mb: PropTypes.string,
   ml: PropTypes.string,
   backgroundColor: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
 };
-
 
 export default Textarea;

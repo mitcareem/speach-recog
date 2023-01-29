@@ -40,8 +40,8 @@ const App = () => {
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
           value={textValue}
-          onChange={() => {
-            setTextValue(transcript);
+          onChange={(event) => {
+            setTextValue((event.target.value) || transcript);
           }}
         />
         <Text mt={"10px"}>Negative prompt</Text>
