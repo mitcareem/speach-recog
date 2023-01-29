@@ -14,8 +14,8 @@ const App = () => {
   const [input1TextValue, setText1TextValue] = useState("");
   const [input2TextValue, setText2TextValue] = useState("");
 
-  // const [input1TranscriptValue, setInput1TranscriptValue] = useState("");
-  // const [input2TranscriptValue, setInput2TranscriptValue] = useState("");
+  const [listen, setListen] = useState(false);
+
 
   const { transcript } = useSpeechRecognition({
     continuous: true,
@@ -24,14 +24,6 @@ const App = () => {
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     alert("Your browser does not support speech recognition.");
   }
-
-  // const handleTranscript = (inputNum) => {
-  //   if (inputNum === 1) {
-  //     setInput1TranscriptValue(transcript);
-  //   } else if (inputNum === 2) {
-  //     setInput2TranscriptValue(transcript);
-  //   }
-  // };
 
   return (
     <Toolbar mt={"50px"} style={{ justifyContent: "center" }}>
@@ -52,7 +44,6 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
-          // onFocus={() => handleTranscript(1)}
           value={input1TextValue || transcript}
           onChange={(event) => {
             setText1TextValue(event.target.value);
@@ -73,7 +64,6 @@ const App = () => {
           pb={"10px"}
           pl={"10px"}
           fontSize={"1.15em"}
-          // onFocus={() => handleTranscript(2)}
           value={input2TextValue || transcript}
           onChange={(event) => {
             setText2TextValue(event.target.value);
@@ -109,20 +99,48 @@ const App = () => {
           >
             Template
           </Button>
-          <Button
-            height={"40px"}
-            width={"33.33%"}
-            border={"1px solid black"}
-            hover={"#e4e4e4"}
-            style={{
-              borderTopRightRadius: "4px",
-              borderBottomRightRadius: "4px",
-              fontWeight: "bold",
-            }}
-            onClick={SpeechRecognition.startListening}
-          >
-            Speak
-          </Button>
+
+          {/* speak button */}
+          {listen ? (
+            <Button
+              height={"40px"}
+              width={"33.33%"}
+              border={"1px solid red"}
+              hover={"#e4e4e4"}
+              style={{
+                borderTopRightRadius: "4px",
+                borderBottomRightRadius: "4px",
+                fontWeight: "bold",
+                color: "red",
+              }}
+              onClick={() => {
+                SpeechRecognition.startListening();
+                setListen(false)
+              }}
+            >
+              Stop
+            </Button>
+          ) : (
+            <Button
+              height={"40px"}
+              width={"33.33%"}
+              border={"1px solid black"}
+              hover={"#e4e4e4"}
+              style={{
+                borderTopRightRadius: "4px",
+                borderBottomRightRadius: "4px",
+                fontWeight: "bold",
+              }}
+              onClick={() => {
+                SpeechRecognition.startListening();
+                setListen(!listen);
+              }}
+            >
+              Speak
+            </Button>
+          )}
+
+          {/* speak button */}
         </Toolbar>
 
         <Toolbar
