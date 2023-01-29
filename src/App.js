@@ -64,7 +64,7 @@ const App = () => {
           pb={"10px"}
           pl={"10px"}
           fontSize={"1.15em"}
-          value={input2TextValue || transcript}
+          value={input2TextValue}
           onChange={(event) => {
             setText2TextValue(event.target.value);
           }}

@@ -1,3 +1,4 @@
+import { memo } from "react"
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
@@ -125,4 +126,4 @@ Textarea.propTypes = {
   backgroundColor: PropTypes.string,
 };
 
-export default Textarea;
+export default memo(Textarea);

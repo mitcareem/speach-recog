@@ -1,3 +1,4 @@
+import { memo } from "react"
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
@@ -34,4 +35,4 @@ Box.propTypes = {
   border: PropTypes.string,
 };
 
-export default Box;
+export default memo(Box);

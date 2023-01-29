@@ -1,3 +1,4 @@
+import { memo } from "react"
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
@@ -5,46 +6,46 @@ const Toolbar = styled.div`
   display: flex;
 
   ${(props) =>
-        props.height &&
-        css`
+    props.height &&
+    css`
       height: ${props.height};
     `};
 
   ${(props) =>
-        props.width &&
-        css`
+    props.width &&
+    css`
       width: ${props.width};
     `};
 
   ${(props) =>
-        props.mt &&
-        css`
+    props.mt &&
+    css`
       margin-top: ${props.mt};
     `};
   ${(props) =>
-        props.mr &&
-        css`
+    props.mr &&
+    css`
       margin-right: ${props.mr};
     `};
   ${(props) =>
-        props.mb &&
-        css`
+    props.mb &&
+    css`
       margin-bottom: ${props.mb};
     `};
   ${(props) =>
-        props.ml &&
-        css`
+    props.ml &&
+    css`
       margin-left: ${props.ml};
     `};
 `;
 
 Toolbar.propTypes = {
-    height: PropTypes.string,
-    width: PropTypes.string,
-    mt: PropTypes.string,
-    mr: PropTypes.string,
-    mb: PropTypes.string,
-    ml: PropTypes.string,
+  height: PropTypes.string,
+  width: PropTypes.string,
+  mt: PropTypes.string,
+  mr: PropTypes.string,
+  mb: PropTypes.string,
+  ml: PropTypes.string,
 };
 
-export default Toolbar;
+export default memo(Toolbar);

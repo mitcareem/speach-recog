@@ -1,3 +1,4 @@
+import { memo } from "react"
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
@@ -98,4 +99,4 @@ Button.propTypes = {
   hover: PropTypes.string,
 };
 
-export default Button;
+export default memo(Button);

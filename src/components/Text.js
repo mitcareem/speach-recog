@@ -1,3 +1,4 @@
+import { memo } from "react"
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
@@ -47,4 +48,4 @@ Text.propTypes = {
     ml: PropTypes.string,
 };
 
-export default Text;
+export default memo(Text);
