@@ -17,7 +17,7 @@ const App = () => {
   const [listen, setListen] = useState(false);
 
 
-  const { transcript } = useSpeechRecognition({
+  const { transcript, finalTranscript } = useSpeechRecognition({
     continuous: true,
   });
 
@@ -44,7 +44,7 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
-          value={input1TextValue || transcript}
+          value={input1TextValue || transcript || finalTranscript}
           onChange={(event) => {
             setText1TextValue(event.target.value);
           }}
