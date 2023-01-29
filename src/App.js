@@ -11,7 +11,7 @@ import Button from "./components/Button";
 import Box from "./components/Box";
 
 const App = () => {
-  const [value, setValue] = useState("");
+  const [textValue, setTextValue] = useState("");
   const { transcript } = useSpeechRecognition({
     continuous: true,
   });
@@ -39,10 +39,9 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
-          value={value}
-          onChange={(event) => {
-            setValue(transcript);
-            setValue(event.target.value);
+          value={textValue}
+          onChange={() => {
+            setTextValue(transcript);
           }}
         />
         <Text mt={"10px"}>Negative prompt</Text>
