@@ -12,7 +12,7 @@ const App = () => {
   });
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
-    return <p>Your browser does not support speech recognition.</p>;
+    alert("Your browser does not support speech recognition.")
   }
 
 
