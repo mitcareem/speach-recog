@@ -12,6 +12,7 @@ import Box from "./components/Box";
 
 const App = () => {
   const [textValue, setTextValue] = useState("");
+  const [inputFocus, setInputFocus] = useState(1);
   const { transcript } = useSpeechRecognition({
     continuous: true,
   });
@@ -39,8 +40,11 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
-          value={textValue || transcript}
-          onChange={(event) => setTextValue(event.target.value)}
+          onFocus={() => setInputFocus(1)}
+          value={inputFocus === 1 ? transcript || textValue : ""}
+          onChange={(event) => {
+            setTextValue(event.target.value);
+          }}
         />
         <Text mt={"10px"}>Negative prompt</Text>
         <Textarea
@@ -57,6 +61,11 @@ const App = () => {
           pb={"10px"}
           pl={"10px"}
           fontSize={"1.15em"}
+          onFocus={() => setInputFocus(2)}
+          value={inputFocus === 2 ? transcript || textValue : ""}
+          onChange={(event) => {
+            setTextValue(event.target.value);
+          }}
           placeholder={"Describe things to exclude"}
         />
         <Toolbar width={"100%"} style={{ justifyContent: "center" }}>
