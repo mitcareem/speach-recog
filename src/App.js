@@ -12,7 +12,8 @@ import Box from "./components/Box";
 
 const App = () => {
   const [textValue, setTextValue] = useState("");
-  const [inputFocus, setInputFocus] = useState(1);
+  const [input1Value, setInput1Value] = useState('');
+  const [input2Value, setInput2Value] = useState('');
   const { transcript } = useSpeechRecognition({
     continuous: true,
   });
@@ -20,6 +21,13 @@ const App = () => {
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     alert("Your browser does not support speech recognition.");
   }
+  const handleTranscript = (inputNum) => {
+    if (inputNum === 1) {
+      setInput1Value(transcript);
+    } else {
+      setInput2Value(transcript);
+    }
+  };
 
   return (
     <Toolbar mt={"50px"} style={{ justifyContent: "center" }}>
@@ -40,8 +48,8 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
-          onFocus={() => setInputFocus(1)}
-          value={inputFocus === 1 ? transcript || textValue : ""}
+          onFocus={() => handleTranscript(1)}
+          value={input1Value || textValue}
           onChange={(event) => {
             setTextValue(event.target.value);
           }}
@@ -61,8 +69,8 @@ const App = () => {
           pb={"10px"}
           pl={"10px"}
           fontSize={"1.15em"}
-          onFocus={() => setInputFocus(2)}
-          value={inputFocus === 2 ? transcript || textValue : ""}
+          onFocus={() => handleTranscript(2)}
+          value={input2Value || textValue}
           onChange={(event) => {
             setTextValue(event.target.value);
           }}
