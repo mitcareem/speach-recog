@@ -12,9 +12,17 @@ import Box from "./components/Box";
 
 const App = () => {
   const [textValue, setTextValue] = useState("");
-  const { transcript } = useSpeechRecognition({
+  const { transcript, listening } = useSpeechRecognition({
     continuous: true,
   });
+
+  function voiceHandler(event) {
+    if (listening) {
+      setTextValue(transcript);
+    } else {
+      setTextValue(event.target.value);
+    }
+  }
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     alert("Your browser does not support speech recognition.");
@@ -40,9 +48,7 @@ const App = () => {
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
           value={textValue}
-          onChange={(event) => {
-            setTextValue((event.target.value) || transcript);
-          }}
+          onChange={voiceHandler}
         />
         <Text mt={"10px"}>Negative prompt</Text>
         <Textarea
