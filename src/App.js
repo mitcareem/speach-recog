@@ -16,7 +16,6 @@ const App = () => {
     continuous: true,
   });
 
-
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     alert("Your browser does not support speech recognition.");
   }
@@ -40,7 +39,7 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
-          value={textValue}
+          value={textValue || transcript}
           onChange={(event) => setTextValue(event.target.value)}
         />
         <Text mt={"10px"}>Negative prompt</Text>
@@ -99,10 +98,7 @@ const App = () => {
               borderBottomRightRadius: "4px",
               fontWeight: "bold",
             }}
-            onClick={() => {
-              SpeechRecognition.startListening();
-              setTextValue(transcript);
-            }}
+            onClick={SpeechRecognition.startListening}
           >
             Speak
           </Button>
