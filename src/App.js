@@ -1,4 +1,8 @@
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import { useState } from "react";
+
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from "react-speech-recognition";
 
 import Text from "./components/Text";
 import Textarea from "./components/Textarea";
@@ -7,17 +11,14 @@ import Button from "./components/Button";
 import Box from "./components/Box";
 
 const App = () => {
+  const [value, setValue] = useState("");
   const { transcript } = useSpeechRecognition({
     continuous: true,
   });
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
-    alert("Your browser does not support speech recognition.")
+    alert("Your browser does not support speech recognition.");
   }
-
-
-
-
 
   return (
     <Toolbar mt={"50px"} style={{ justifyContent: "center" }}>
@@ -38,7 +39,11 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
-          value={transcript}
+          value={value}
+          onChange={(event) => {
+            setValue(transcript);
+            setValue(event.target.value);
+          }}
         />
         <Text mt={"10px"}>Negative prompt</Text>
         <Textarea
@@ -97,7 +102,6 @@ const App = () => {
               fontWeight: "bold",
             }}
             onClick={SpeechRecognition.startListening}
-
           >
             Speak
           </Button>

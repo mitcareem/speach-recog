@@ -109,6 +109,11 @@ const Textarea = styled.textarea`
     css`
       value: ${props.value};
     `};
+  ${(props) =>
+    props.onChange &&
+    css`
+      onchange: ${props.onChange};
+    `};
 `;
 
 Textarea.propTypes = {
