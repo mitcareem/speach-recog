@@ -14,8 +14,7 @@ const App = () => {
   const [input1TextValue, setText1TextValue] = useState("");
   const [input2TextValue, setText2TextValue] = useState("");
 
-  const [listen, setListen] = useState(false);
-
+  const [isListening, setIsListening] = useState(false);
 
   const { transcript } = useSpeechRecognition({
     continuous: true,
@@ -24,6 +23,17 @@ const App = () => {
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     alert("Your browser does not support speech recognition.");
   }
+
+  const handleListing = () => {
+    setIsListening(true);
+    SpeechRecognition.startListening({
+      continuous: true,
+    });
+  };
+  const stopHandle = () => {
+    setIsListening(false);
+    SpeechRecognition.stopListening();
+  };
 
   return (
     <Toolbar mt={"50px"} style={{ justifyContent: "center" }}>
@@ -44,7 +54,7 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
-          value={input1TextValue || transcript }
+          value={input1TextValue || transcript}
           onChange={(event) => {
             setText1TextValue(event.target.value);
           }}
@@ -101,7 +111,7 @@ const App = () => {
           </Button>
 
           {/* speak button */}
-          {listen ? (
+          {isListening ? (
             <Button
               height={"40px"}
               width={"33.33%"}
@@ -113,10 +123,7 @@ const App = () => {
                 fontWeight: "bold",
                 color: "red",
               }}
-              onClick={() => {
-                SpeechRecognition.startListening();
-                setListen(false)
-              }}
+              onClick={stopHandle}
             >
               Stop
             </Button>
@@ -131,10 +138,7 @@ const App = () => {
                 borderBottomRightRadius: "4px",
                 fontWeight: "bold",
               }}
-              onClick={() => {
-                SpeechRecognition.startListening();
-                setListen(!listen);
-              }}
+              onClick={handleListing}
             >
               Speak
             </Button>
