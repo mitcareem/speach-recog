@@ -121,8 +121,8 @@ const App = () => {
             Generate
           </Button>
         </Toolbar>
+        <p>hi, {transcript}</p>
       </Box>
-      <p>hi, {transcript}</p>
     </Toolbar>
   );
 };
