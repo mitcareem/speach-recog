@@ -17,7 +17,7 @@ const App = () => {
   const [listen, setListen] = useState(false);
 
 
-  const { transcript, finalTranscript } = useSpeechRecognition({
+  const { transcript } = useSpeechRecognition({
     continuous: true,
   });
 
