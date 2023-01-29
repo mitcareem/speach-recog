@@ -11,9 +11,12 @@ import Button from "./components/Button";
 import Box from "./components/Box";
 
 const App = () => {
-  const [textValue, setTextValue] = useState("");
-  const [input1Value, setInput1Value] = useState('');
-  const [input2Value, setInput2Value] = useState('');
+  const [input1TextValue, setText1TextValue] = useState("");
+  const [input2TextValue, setText2TextValue] = useState("");
+
+  const [input1TranscriptValue, setInput1TranscriptValue] = useState("");
+  const [input2TranscriptValue, setInput2TranscriptValue] = useState("");
+
   const { transcript } = useSpeechRecognition({
     continuous: true,
   });
@@ -21,11 +24,12 @@ const App = () => {
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     alert("Your browser does not support speech recognition.");
   }
+
   const handleTranscript = (inputNum) => {
     if (inputNum === 1) {
-      setInput1Value(transcript);
+      setInput1TranscriptValue(transcript);
     } else {
-      setInput2Value(transcript);
+      setInput2TranscriptValue(transcript);
     }
   };
 
@@ -49,9 +53,9 @@ const App = () => {
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
           onFocus={() => handleTranscript(1)}
-          value={input1Value || textValue}
+          value={input1TextValue || input1TranscriptValue}
           onChange={(event) => {
-            setTextValue(event.target.value);
+            setText1TextValue(event.target.value);
           }}
         />
         <Text mt={"10px"}>Negative prompt</Text>
@@ -70,9 +74,9 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           onFocus={() => handleTranscript(2)}
-          value={input2Value || textValue}
+          value={input2TextValue || input2TranscriptValue}
           onChange={(event) => {
-            setTextValue(event.target.value);
+            setText2TextValue(event.target.value);
           }}
           placeholder={"Describe things to exclude"}
         />
