@@ -17,7 +17,7 @@ const App = () => {
   const [input1TranscriptValue, setInput1TranscriptValue] = useState("");
   const [input2TranscriptValue, setInput2TranscriptValue] = useState("");
 
-  const { transcript } = useSpeechRecognition({
+  const { transcript, resetTranscript } = useSpeechRecognition({
     continuous: true,
   });
 
@@ -53,6 +53,7 @@ const App = () => {
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
           onFocus={() => handleTranscript(1)}
+          onBlur={resetTranscript}
           value={input1TextValue || input1TranscriptValue}
           onChange={(event) => {
             setText1TextValue(event.target.value);
@@ -74,6 +75,7 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           onFocus={() => handleTranscript(2)}
+          onBlur={resetTranscript}
           value={input2TextValue || input2TranscriptValue}
           onChange={(event) => {
             setText2TextValue(event.target.value);
