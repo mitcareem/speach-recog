@@ -44,7 +44,7 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
-          value={input1TextValue || transcript || finalTranscript}
+          value={input1TextValue || transcript }
           onChange={(event) => {
             setText1TextValue(event.target.value);
           }}
