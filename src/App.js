@@ -22,7 +22,7 @@ const App = () => {
     }
 
     return () => resetTranscript;
-  }, [transcript]);
+  }, []);
 
   if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     alert("Your browser does not support speech recognition.");
