@@ -24,13 +24,17 @@ const App = () => {
     alert("Your browser does not support speech recognition.");
   }
 
+
+  // for start listening
   const handleListing = () => {
     setIsListening(true);
     SpeechRecognition.startListening({
       continuous: true,
     });
   };
-  const stopHandle = () => {
+
+  // for stop listening
+  const stopHandleListening = () => {
     setIsListening(false);
     SpeechRecognition.stopListening();
   };
@@ -39,6 +43,7 @@ const App = () => {
     <Toolbar mt={"50px"} style={{ justifyContent: "center" }}>
       <Box height={"100vh"} width={"620px"}>
         <Text style={{ lineHeight: "1.4375em" }}>Describe your image</Text>
+        {/* upper text area */}
         <Textarea
           height={"140px"}
           width={"100%"}
@@ -60,6 +65,7 @@ const App = () => {
           }}
         />
         <Text mt={"10px"}>Negative prompt</Text>
+        {/* lower text area */}
         <Textarea
           height={"60px"}
           width={"100%"}
@@ -86,6 +92,7 @@ const App = () => {
           </Text>
         </Toolbar>
         <Toolbar width={"100%"} mt={"15px"}>
+          {/* Random button */}
           <Button
             height={"40px"}
             width={"33.33%"}
@@ -100,6 +107,7 @@ const App = () => {
           >
             Random
           </Button>
+          {/* Template button */}
           <Button
             height={"40px"}
             width={"33.33%"}
@@ -123,7 +131,7 @@ const App = () => {
                 fontWeight: "bold",
                 color: "red",
               }}
-              onClick={stopHandle}
+              onClick={stopHandleListening}
             >
               Stop
             </Button>
@@ -144,7 +152,7 @@ const App = () => {
             </Button>
           )}
 
-          {/* speak button */}
+          {/*  end of speak button */}
         </Toolbar>
 
         <Toolbar
@@ -152,6 +160,7 @@ const App = () => {
           mt={"20px"}
           style={{ justifyContent: "center", alignItems: "center" }}
         >
+          {/* Generate button */}
           <Button
             height={"40px"}
             width={"100%"}

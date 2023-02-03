@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
+
+// For avatar-- circular image
 const Avatar = styled.img`
   border-radius: 50%;
   ${(props) =>

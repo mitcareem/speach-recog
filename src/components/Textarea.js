@@ -2,6 +2,8 @@ import { memo } from "react"
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
+
+// For text area
 const Textarea = styled.textarea`
   box-sizing: border-box;
   ${(props) =>

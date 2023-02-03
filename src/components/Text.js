@@ -2,6 +2,7 @@ import { memo } from "react"
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
+// For typography
 const Text = styled.div`
   ${(props) =>
         props.color &&

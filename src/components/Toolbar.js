@@ -2,6 +2,8 @@ import { memo } from "react"
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
+
+// Toolbar for mimic the behavior of flex box
 const Toolbar = styled.div`
   display: flex;
 
