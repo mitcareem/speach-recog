@@ -1,4 +1,4 @@
-# speach-recog
+# speach-recognition
 
 ## npm install
 To install all the neccessary dependencies.
