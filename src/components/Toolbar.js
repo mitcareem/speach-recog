@@ -1,9 +1,8 @@
-import { memo } from "react"
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 
-// Toolbar for mimic the behavior of flex box
+// Toolbar component is for mimic the behavior of flex box
 const Toolbar = styled.div`
   display: flex;
 
@@ -50,4 +49,4 @@ Toolbar.propTypes = {
   ml: PropTypes.string,
 };
 
-export default memo(Toolbar);
+export default Toolbar;

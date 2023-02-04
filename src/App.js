@@ -43,6 +43,7 @@ const App = () => {
     <Toolbar mt={"50px"} style={{ justifyContent: "center" }}>
       <Box height={"100vh"} width={"620px"}>
         <Text style={{ lineHeight: "1.4375em" }}>Describe your image</Text>
+
         {/* upper text area */}
         <Textarea
           height={"140px"}
@@ -64,7 +65,10 @@ const App = () => {
             setText1TextValue(event.target.value);
           }}
         />
+
         <Text mt={"10px"}>Negative prompt</Text>
+
+
         {/* lower text area */}
         <Textarea
           height={"60px"}
@@ -86,11 +90,14 @@ const App = () => {
           }}
           placeholder={"Describe things to exclude"}
         />
+
+
         <Toolbar width={"100%"} style={{ justifyContent: "center" }}>
           <Text mt={"15px"} style={{ lineHeight: "1.4375em" }}>
             or
           </Text>
         </Toolbar>
+
         <Toolbar width={"100%"} mt={"15px"}>
           {/* Random button */}
           <Button
@@ -107,6 +114,7 @@ const App = () => {
           >
             Random
           </Button>
+
           {/* Template button */}
           <Button
             height={"40px"}
@@ -118,7 +126,7 @@ const App = () => {
             Template
           </Button>
 
-          {/* speak button */}
+          {/* speak and stop button rendered conditionally */}
           {isListening ? (
             <Button
               height={"40px"}
@@ -152,7 +160,7 @@ const App = () => {
             </Button>
           )}
 
-          {/*  end of speak button */}
+          {/*  end of speak and stop button */}
         </Toolbar>
 
         <Toolbar

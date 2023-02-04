@@ -1,9 +1,8 @@
-import { memo } from "react"
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 
-// For button
+// This component is for a button
 const Button = styled.button`
   cursor: pointer;
   ${(props) =>
@@ -101,4 +100,4 @@ Button.propTypes = {
   hover: PropTypes.string,
 };
 
-export default memo(Button);
+export default Button;

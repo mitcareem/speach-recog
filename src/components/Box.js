@@ -2,7 +2,7 @@ import { memo } from "react"
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
-// This is mimic the behavior of container
+// This component mimic the behavior of a container
 const Box = styled.div`
   ${(props) =>
     props.height &&

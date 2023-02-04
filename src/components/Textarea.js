@@ -1,9 +1,8 @@
-import { memo } from "react"
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 
-// For text area
+// This component is for textarea
 const Textarea = styled.textarea`
   box-sizing: border-box;
   ${(props) =>
@@ -128,4 +127,4 @@ Textarea.propTypes = {
   backgroundColor: PropTypes.string,
 };
 
-export default memo(Textarea);
+export default Textarea;
