@@ -87,7 +87,8 @@ const App = () => {
           fontSize={"1.15em"}
           value={input2TextValue}
           onChange={(event) => {
-            setInput2TextValue(event.target.value || transcript);
+            setInput2TextValue(event.target.value);
+            setInput2TextValue(transcript);
           }}
           placeholder={"Describe things to exclude"}
         />
