@@ -62,7 +62,8 @@ const App = () => {
           placeholder={"Portrait of a gardener in a greenhouse"}
           value={input1TextValue}
           onChange={(event) => {
-            setInput1TextValue(event.target.value || transcript);
+            setInput1TextValue(event.target.value);
+            setInput1TextValue(transcript);
           }}
         />
 
