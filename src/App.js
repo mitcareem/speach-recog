@@ -11,8 +11,8 @@ import Button from "./components/Button";
 import Box from "./components/Box";
 
 const App = () => {
-  const [input1TextValue, setText1TextValue] = useState("");
-  const [input2TextValue, setText2TextValue] = useState("");
+  const [input1TextValue, setInput1TextValue] = useState("");
+  const [input2TextValue, setInput2TextValue] = useState("");
 
   const [isListening, setIsListening] = useState(false);
 
@@ -60,9 +60,9 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
-          value={input1TextValue || transcript}
+          value={input1TextValue}
           onChange={(event) => {
-            setText1TextValue(event.target.value);
+            setInput1TextValue(event.target.value || transcript);
           }}
         />
 
@@ -86,7 +86,7 @@ const App = () => {
           fontSize={"1.15em"}
           value={input2TextValue}
           onChange={(event) => {
-            setText2TextValue(event.target.value);
+            setInput2TextValue(event.target.value || transcript);
           }}
           placeholder={"Describe things to exclude"}
         />
