@@ -60,10 +60,9 @@ const App = () => {
           pl={"10px"}
           fontSize={"1.15em"}
           placeholder={"Portrait of a gardener in a greenhouse"}
-          value={input1TextValue}
+          value={input1TextValue || transcript}
           onChange={(event) => {
             setInput1TextValue(event.target.value);
-            setInput1TextValue(transcript);
           }}
         />
 
@@ -88,7 +87,6 @@ const App = () => {
           value={input2TextValue}
           onChange={(event) => {
             setInput2TextValue(event.target.value);
-            setInput2TextValue(transcript);
           }}
           placeholder={"Describe things to exclude"}
         />
